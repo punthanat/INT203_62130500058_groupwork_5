@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <link href="styles.css" rel="stylesheet">
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <div class="flex justify-center max-w-3xl font-sans text-xl bg-gray-200 mx-auto my-auto">
+    <div id="app" class=" w-4/5 max-w-3xl">
+      <h1 class="text-3xl my-6">Photo Gallery: {{photoGallery}} &nbsp&nbsp&nbsplike: {{likeCount}}</h1>
+      
+      <photo-search @input-something="inputSomething" @search-cancel="searchCancel"></photo-search>
+
+
+      <photo-view :expand-img-path1="expandImgPath1" :expand="expand" @close-expand="closeExpand"></photo-view>
+
+
+      <photo-item :input-searchfil="inputSearchfil" @like.native="like" @expand-img="expandImg"
+        @expand-img-path="expandImgPath"></photo-item>
+
+
+
+
+    </div>
+  </div>
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+  <script src="./components/PhotoItem.js"></script>
+  <script src="./components/PhotoSearch.js"></script>
+  <script src="./components/PhotoView.js"></script>
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+</body>
+
+</html>
